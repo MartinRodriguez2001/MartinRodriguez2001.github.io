@@ -1,13 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-    
-    
+<div id="navBar">
+    <div id="name">
+        <p>Martín Rodriguez</p>
+    </div>
+    <div id="navBarLinks">
+        <a class="links" href="#aboutSection">About Me</a>
+        <a class="links" href="#interestSection">Skills</a>
+        <a class="links" href="#contactSection">Contact</a>
+    </div>
+</div>
+
+<div id="hero">
+    <div id="imagen">
+        <img src="163907287.jpeg">
+    </div>
+
+    <h1 id="mainName">Martín Rodríguez</h1>
+    <h2 id="mainDes">Software Developer</h2>
+</div>
+
+<div id="aboutSection">
+    <div id="aboutDom">
+        <div>
+            <h2 id="aboutTitle">About Me</h2>
+            <p class="aboutText">I am a software developer with experience in front-end technologies and currently learning back-end development. 
+                My specialty is building web and mobile applications tailored to the client’s needs.</p>
+            <p class="aboutText">My approach focuses on maintaining clean and scalable code, following industry best practices.</p>
+        </div>
+        <div id="aboutImage">
+            <img src="james-harrison-vpOeXr5wmR4-unsplash.jpg" alt="Representative image">
+        </div>
+    </div>
+</div>
+
+<section id="interestSection">
+    <h1 id="interestTitle">Skills</h1>
+    <div id="interesContainer"></div>
+</section>
+
+<script src="scripts.js"></script>
+
+<section id="contactSection">
+    <h1 id="contact">Contact</h1>
+    <p id="textContact">Interested in working together? You can reach out to me through the following platforms.</p>
+    <div class="icon-container">
+        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit" class="icon-circle">
+            <img src="linkedin-brands.svg" width="50" height="50" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/MartinRodriguez2001" class="icon-circle">
+            <img src="github-brands.svg" width="50" height="50" alt="GitHub">
+        </a>
+        <a href="#" class="icon-circle">
+            <img src="envelope-solid.svg" width="50" height="50" alt="Email">
+        </a>
+    </div>
+</section>
+
 </body>
 </html>
