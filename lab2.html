@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News and Updates</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .news-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .news-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .news-card a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px;
+            scrollbar-width: thin;
+        }
+
+        .category-buttons button {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .category-buttons {
+                justify-content: start;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .news-card h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container mt-5 bg-light mw-100 p-4">
+        <div class="d-flex justify-content-start">
+            <button type="button" class="btn btn-primary mt"><a href="index.html" class="text-white text-decoration-none">Go Back</a></button>
+        </div>
+        <h1 class="mt-4 fw-semibold">News and Updates</h1>
+        <p class="fw-normal">Mantente al día con mis últimos proyectos, eventos y publicaciones.</p>
+    </section>
+
+    <section class="container mw-100">
+        <div class="category-buttons flex-nowrap mt-3">
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="general">General</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="business">Business</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="entertainment">Entertainment</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="health">Health</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="science">Science</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="sports">Sports</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-category="technology">Technology</button>
+        </div>
+        <div id="dataContainer" class="mt-4 justify-content-center align-items-center">
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button[data-category]');
+            buttons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const category = event.target.getAttribute('data-category');
+                    getData(category);
+                });
+            });
+        });
+    </script>
+    <script src="scripts.js"></script>
+    <script>
+        getData();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

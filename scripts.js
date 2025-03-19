@@ -24,3 +24,40 @@ interest.forEach(item => {
     
     interesContainer.appendChild(interestDiv);
 });
+
+async function getData(category = 'technology') {
+    if (category === 'all') {
+        category = 'latest';
+    }
+    
+    const API_URL = `https://newsapi.org/v2/top-headlines?category=${category}&apiKey=69f1db816e144fd1bb6dc636794cbdc9`;
+    const dataContainer = document.getElementById('dataContainer');
+    dataContainer.classList.add('d-flex', 'flex-wrap', 'justify-content-center', 'align-items-center', 'gap-4', 'w-75', 'mx-auto');
+
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log(data);
+
+        let content = '';
+        data.articles.slice(0, 10).forEach(article => {
+            content += `
+                <div class="card" style="width: 22rem; margin: 10px;">
+                    <img src="${article.urlToImage || 'https://via.placeholder.com/150'}" class="card-img-top" alt="Imagen de noticia">
+                    <div class="card-body">
+                        <h5 class="card-title">${article.title}</h5>
+                        <p class="card-text">${article.description || 'Sin descripción disponible.'}</p>
+                        <a href="${article.url}" class="btn btn-primary" target="_blank">Leer más</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        dataContainer.innerHTML = content;
+    } catch (error) {
+        dataContainer.innerHTML = `<p class="text-danger">Error al cargar noticias: ${error.message}</p>`;
+        console.error('Error al obtener datos:', error);
+    }
+}
+
+
